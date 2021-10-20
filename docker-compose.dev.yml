@@ -28,29 +28,29 @@ services:
       DATABASE_USERNAME: strapi
       DATABASE_PASSWORD: strapi
     volumes:
-      - ./www/backend-landing-api:/srv/app
+      - ./www/backend-wongames-api:/srv/app
     ports:
       - '1338:1337'
     depends_on:
       - postgres
 
   postgres:
-    # image: postgres:12.3-alpine
-    build: 
-      context: ./bin/postgres/12/alpine
+    image: postgres:12.3-alpine
+    # build: 
+    #   context: ./bin/postgres/12/alpine
     container_name: 'strapi_postgres'
     # privileged: true
     restart: always
     environment:
-      POSTGRES_USER: strapi
-      POSTGRES_PASSWORD: strapi
-      POSTGRES_DB: strapi
+      POSTGRES_USER: wongames
+      POSTGRES_PASSWORD: wongames123
+      POSTGRES_DB: wongames
     ports:
-      - '5433:5432'
+      - '5432:5432'
     volumes: 
-      - ${POSTGRES_SQL_DATA_DIR-./data/postgres}:/var/lib/postgresql/data
+      - ${POSTGRES_DATA_DIR-./data/postgres}:/var/lib/postgresql/data
       - pgdata:/var/lib/postgresql/data
-      - ${POSTGRES_SQL_LOG_DIR-./logs/postgres}:/var/log/postgresql
+      - ${POSTGRES_LOG_DIR-./logs/postgres}:/var/log/postgresql
 
   mongo:
     image: mongo
