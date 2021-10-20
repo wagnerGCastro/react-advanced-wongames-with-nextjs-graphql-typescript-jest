@@ -20,3 +20,8 @@ module.exports = {
     ctx.send("Finished populating!");
   },
 };
+
+
+// GET POST PELO TERMINAL
+//  - curl -X POST  http://localhost:1338/games/populate 
+//  - curl -X POST  http://localhost:1338/games/populate\?page\=2
