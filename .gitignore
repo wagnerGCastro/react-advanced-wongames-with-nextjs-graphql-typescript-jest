@@ -1,0 +1,11 @@
+/.vscode
+/logs/*
+.DS_Store
+
+/www/index.php
+/www/phpinfo.php
+/test_db.php
+/assets
+data/postgres/wsl-data
+/node_modules
+_node_modules
